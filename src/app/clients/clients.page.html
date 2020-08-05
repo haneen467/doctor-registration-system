@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>المراجعين</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-header>
+  <ion-toolbar style="display: flex;">
+    <ion-searchbar (ionInput)="getItems($event)" animated placeholder="اسم المراجع"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div class="loading" *ngIf="loading">
+    <ion-spinner color="primary" name="lines"></ion-spinner>
+  </div>
+
+  <div class="notfound" *ngIf="nodata">
+    <div>
+      <img src="assets/nodata.svg" />
+      <p class="ion-text-center" style="margin: 0px;">لا يوجد مراجعين</p>
+    </div>
+  </div>
+
+  <div class="notfound" *ngIf="notlogin">
+    <div>
+      <img src="assets/nodata.svg" />
+      <p class="ion-text-center" style="margin: 0px;">قم بتسجيل الدخول</p>
+    </div>
+  </div>
+
+  <ion-card text-center style="box-shadow: 0px 0px 1px 0;" *ngFor="let item of items">
+
+    <ion-item lines="full">
+      <ion-avatar slot="start">
+        <img src="https://image.flaticon.com/icons/svg/3011/3011294.svg">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{item.payload.val()['userName']}}</h2>
+        <h3>{{item.payload.val()['rajita']}}</h3>
+      </ion-label>
+
+    </ion-item>
+
+    <ion-row style="text-align: center;">
+      <ion-col>
+        <ion-icon name="trash-outline" (click)="delete(item.key)" color="danger"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="create-outline" (click)="edit(item)"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="eye-outline" (click)="showRajeta(item.payload.val().rajita)"></ion-icon>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+
+
+
+
+</ion-content>

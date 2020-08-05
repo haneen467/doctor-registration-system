@@ -1,0 +1,47 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+.header-md:after {
+  background-image: unset;
+}
+
+ion-header {
+  border-bottom: 1px solid #ccc;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+}
+
+.header img {
+  width: 170px;
+}
+
+.about {
+  padding: 0px 40px;
+  font-size: 13px;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+ion-item-divider {
+  padding: 10px;
+}
+
+.name {
+  margin: 0px 10px;
+}
+
+.item-inner:last-child {
+  border: 0 !important;
+}
+
+ion-item,
+.item-inner {
+  border: 0px;
+  box-shadow: 0 0 0 0;
+}

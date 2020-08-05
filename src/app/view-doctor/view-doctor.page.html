@@ -1,0 +1,57 @@
+<ion-content>
+  <div class="header">
+    <ion-icon name="arrow-forward-outline" (click)="goback()"></ion-icon>
+
+    <div
+      class="avatar"
+      [ngStyle]="{'background-image': 'url(' + info.img + ')'}"
+      style="background-image: url('https://firebasestorage.googleapis.com/v0/b/mydoctor-f3cff.appspot.com/o/images%2Fatgs.jpg?alt=media&token=7e2e7b66-757b-4b7d-b284-7df87ea59767');"
+    ></div>
+  </div>
+  <div class="content">
+    <p class="lead title ion-text-center">{{info.fullname}}</p>
+
+    <ion-list>
+      <ion-item (click)="openlocation(info.lat,info.lng,info.fullname)">
+        <ion-icon color="primary" name="map-outline" item-start></ion-icon>
+        <p class="lead itemp">{{info.workname}}</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon color="primary" name="medkit-outline" item-start></ion-icon>
+        <p class="lead itemp">{{info.spel}}</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon color="primary" name="mail-outline" item-start></ion-icon>
+        <p class="lead itemp">
+          {{info.email}}
+        </p>
+      </ion-item>
+
+      <div class="about">
+        <p class="lead">
+          {{info.about}}
+        </p>
+      </div>
+
+      <ion-item>
+        <ion-label>وقت الحجز</ion-label>
+        <ion-datetime
+          [pickerOptions]="customPickerOptions"
+          displayFormat="HH:mm"
+          [(ngModel)]="myDate"
+        ></ion-datetime>
+      </ion-item>
+
+      <button class="book" (click)="book()">
+        <span *ngIf="!loading">حجز طبيب</span>
+        <ion-spinner
+          *ngIf="loading"
+          name="crescent"
+          color="white"
+        ></ion-spinner>
+      </button>
+    </ion-list>
+  </div>
+</ion-content>

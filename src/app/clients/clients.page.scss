@@ -1,0 +1,35 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+.header-md:after {
+  background-image: unset;
+}
+
+ion-header {
+  border-bottom: 1px solid #ccc;
+}
+
+
+.notfound {
+  height: calc(100vh - 150px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notfound img {
+  width: 130px;
+}
+
+
+.loading {
+  height: calc(100vh - 150px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

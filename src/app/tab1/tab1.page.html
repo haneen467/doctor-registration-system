@@ -1,0 +1,89 @@
+<ion-header [translucent]="true">
+  <ion-toolbar light>
+    <ion-title>
+      طبيبك
+    </ion-title>
+
+    <ion-buttons slot="secondary">
+      <!-- <ion-button (click)="search()" *ngIf="!searchshow">
+        <ion-icon color="primary" slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+
+      <ion-button (click)="closesearch()" *ngIf="searchshow">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button> -->
+
+      <ion-button [routerLink]="['/login']" *ngIf="isnotLogin">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button (click)="logout()" *ngIf="isLogin">
+        <ion-icon name="power-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header *ngIf="searchshow">
+  <ion-toolbar style="display: flex;">
+    <ion-row>
+      <ion-col size="9">
+        <ion-searchbar
+          (ionInput)="getItems($event)"
+          animated
+          placeholder="اسم الطبيب"
+        ></ion-searchbar>
+      </ion-col>
+      <ion-col>
+        <ion-select
+          value="الجميع"
+          interface="popover"
+          (ionChange)="selected($event)"
+        >
+          <ion-select-option value="الجميع">الجميع </ion-select-option>
+          <ion-select-option value="باطنية">باطنية</ion-select-option>
+          <ion-select-option value="قلبية">قلبية</ion-select-option>
+          <ion-select-option value="عظام">عظام</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="loading" *ngIf="loading">
+    <ion-spinner color="primary" name="lines"></ion-spinner>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let item of items">
+        <ion-card class="ion-no-margin" (click)="viewDoctor(item)">
+          <ion-card-header
+            class="ion-margin-bottom"
+            [ngStyle]="{'background-image': 'url(' + item.payload.val()['img'] + ')'}"
+          >
+          </ion-card-header>
+
+          <ion-card-content>
+            <p class="lead name">{{item.payload.val()['fullname']}}</p>
+            <ion-row class="ion-margin-top ion-align-items-center">
+              <ion-col class="ion-text-right ion-no-padding">
+                <p class="lead ">
+                  {{item.payload.val()['spel']}}
+                </p>
+              </ion-col>
+              <ion-col class="ion-text-left ion-no-padding">
+                <ion-icon
+                  large
+                  name="eye-outline"
+                  class="ion-color-primary spel"
+                ></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

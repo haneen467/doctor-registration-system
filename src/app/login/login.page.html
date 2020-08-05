@@ -1,0 +1,54 @@
+<ion-content>
+  <div
+    class="content ion-justify-content-center ion-align-items-center ion-padding"
+  >
+    <ion-card style="width: 100%;" class="ion-margin mycard">
+      <ion-card-header>
+        <ion-card-title>
+          <span style="color: var(--ion-color-primary);">تسجيل</span>
+          دخول
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div class="inputs">
+          <div class="custinput">
+            <input type="text" placeholder="البريد الالكتروني" #email />
+            <ion-icon name="mail-outline"></ion-icon>
+          </div>
+
+          <div class="custinput">
+            <input
+              type="text"
+              placeholder="كلمة المرور "
+              #pass
+              type="password"
+            />
+            <ion-icon name="lock-closed-outline"></ion-icon>
+          </div>
+        </div>
+
+        <p class="ion-text-end forgot" (click)="showHome()">
+          الدخول بدون تسجيل ؟
+        </p>
+
+        <p
+          class="ion-margin-top ion-text-center"
+          style="color: var(--ion-color-primary);margin-top: 20px;"
+          (click)="register()"
+        >
+          انشاء حساب جديد
+        </p>
+
+        <div class="logbut" (click)="login(email.value,pass.value)">
+          <ion-icon *ngIf="!loading" name="arrow-back-outline"></ion-icon>
+          <ion-spinner
+            *ngIf="loading"
+            name="crescent"
+            color="white"
+          ></ion-spinner>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

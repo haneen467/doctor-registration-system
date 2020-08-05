@@ -1,0 +1,101 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      الحجوزات
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="loading" *ngIf="loading">
+    <ion-spinner color="primary" name="lines"></ion-spinner>
+  </div>
+
+  <div class="notfound" *ngIf="nodata">
+    <div>
+      <img src="assets/nodata.svg" />
+      <p class="ion-text-center" style="margin: 0px;">لا يوجد حجوزات</p>
+    </div>
+  </div>
+
+  <div class="notfound" *ngIf="notlogin">
+    <div>
+      <img src="assets/nodata.svg" />
+      <p class="ion-text-center" style="margin: 0px;">قم بتسجيل الدخول</p>
+    </div>
+  </div>
+
+  <div *ngIf="!isDoctor">
+    <ion-card *ngFor="let item of items">
+      <div class="cardhead">
+        <p>
+          الدكتور {{item.payload.val()['doctorName']}}
+        </p>
+        <span>
+          {{item.payload.val()['time']}} | {{item.payload.val()['date']}}
+        </span>
+      </div>
+      <div class="loc">
+        <p class="lead primary">
+          {{item.payload.val()['doctorSpel']}} |
+          {{item.payload.val()['workname']}}
+        </p>
+
+        <ion-icon name="trash-outline" color="danger" style="font-size:17px" (click)="delete(item.key)"></ion-icon>
+      </div>
+
+      <div class="status">
+        <div class="pen" *ngIf="item.payload.val().status == 'pending'">
+          <span class="lead">قيد الانتضار</span>
+        </div>
+        <div class="reject" *ngIf="item.payload.val().status == 'reject'">
+          <span class="lead">الموعد مرفوض</span>
+        </div>
+
+        <div class="accept" *ngIf="item.payload.val().status == 'accept'">
+          <span class="lead">تمت الموافقة</span>
+        </div>
+      </div>
+
+    </ion-card>
+  </div>
+
+  <div *ngIf="isDoctor">
+    <ion-card *ngFor="let item of items">
+      <div class="cardhead">
+        <p>
+          {{item.payload.val()['userName']}}
+        </p>
+        <span>
+          <ion-icon name="calendar-outline"></ion-icon>
+          {{item.payload.val()['date']}}
+        </span>
+      </div>
+      <div class="loc">
+        <p class="lead primary">
+          {{item.payload.val()['userEmail']}}
+        </p>
+
+        <ion-icon name="trash-outline" color="danger" style="font-size:17px" (click)="delete(item.key)"></ion-icon>
+
+      </div>
+      <div class="opreations" *ngIf="item.payload.val().status == 'pending'">
+        <ion-row>
+          <ion-col>
+            <ion-button expand="full" color="primary" (click)="accept(item)">
+              قبول
+            </ion-button>
+          </ion-col>
+
+          <ion-col>
+            <ion-button color="danger" expand="full" (click)="reject(item.key)">
+              رفظ
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </div>
+
+    </ion-card>
+  </div>
+</ion-content>

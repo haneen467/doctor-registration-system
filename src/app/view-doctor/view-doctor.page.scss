@@ -1,0 +1,79 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+.header-md:after {
+  background-image: unset;
+}
+
+ion-header {
+  border-bottom: 1px solid #ccc;
+}
+
+.header {
+  height: 120px;
+  background: var(--ion-color-secondary);
+  background-image: url("https://www.gstatic.com/mobilesdk/190424_mobilesdk/nav_nachos@2x.png");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-position: center center;
+}
+
+.header .avatar {
+  width: 100px;
+  margin-bottom: -100px;
+  height: 100px;
+  border-radius: 50%;
+  background-size: cover;
+}
+
+.header ion-icon {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: #fff;
+  font-size: 23px;
+}
+
+.content {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.content .title {
+  font-weight: bold;
+}
+
+.itemp {
+  margin: 0px 10px;
+}
+
+ion-item {
+  margin-bottom: 10px;
+}
+
+.about {
+  padding: 0px 17px;
+}
+
+.about p {
+  color: #7e8787;
+  width: 100%;
+  font-size: 14px;
+}
+
+.book {
+  border: 0;
+  border-radius: 2px;
+  color: #fff;
+  background: var(--ion-color-secondary);
+  width: 100%;
+  margin-top: 30px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

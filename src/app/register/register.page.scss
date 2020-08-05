@@ -1,0 +1,50 @@
+.content {
+  background: var(--ion-color-secondary);
+  height: 100vh;
+  display: flex;
+  background-image: url("https://www.gstatic.com/mobilesdk/190424_mobilesdk/nav_nachos@2x.png");
+}
+
+.forgot {
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+.logbut {
+  margin-top: 25px;
+  font-size: 20px;
+  color: #fff;
+  background: var(--ion-color-secondary);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inputs {
+  margin-top: 30px;
+}
+
+.inputs .custinput {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.inputs .custinput input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  padding-right: 40px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.inputs .custinput ion-icon {
+  position: absolute;
+  top: 0;
+  right: 10;
+  top: 17px;
+  right: 15px;
+  color: var(--ion-color-secondary);
+}

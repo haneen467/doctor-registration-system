@@ -1,0 +1,11 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+.header-md:after {
+  background-image: unset;
+}
+
+ion-header {
+  border-bottom: 1px solid #ccc;
+}

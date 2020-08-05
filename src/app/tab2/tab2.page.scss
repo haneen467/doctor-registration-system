@@ -1,0 +1,97 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+.header-md:after {
+  background-image: unset;
+}
+
+ion-header {
+  border-bottom: 1px solid #ccc;
+}
+
+ion-card {
+  box-shadow: 0 0 0 0;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  border-right: 2px solid teal;
+  padding: 7px;
+}
+
+.cardhead {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+}
+
+.loc {
+  display: flex;
+  align-items: center;
+}
+
+.loc > p {
+  width: 100%;
+  margin: 0;
+  padding: 6px;
+  margin-top: 7px;
+}
+
+.cardhead p {
+  margin: 0;
+  color: #000;
+  width: 100%;
+}
+
+.cardhead span {
+  text-align: left;
+  font-size: 10px;
+  width: 100%;
+}
+
+.spel {
+  font-size: 13px;
+  font-weight: bold;
+  color: #ff8d63;
+}
+
+.notfound {
+  height: calc(100vh - 150px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notfound img {
+  width: 130px;
+}
+
+.status > div {
+    color: #FFF;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+
+.status .pen {
+      background: #607D8B;
+}
+
+.status .reject {
+background: #f44336;
+}
+
+.status .accept {
+  background: #4caf50;
+}
+
+
+.loading {
+  height: calc(100vh - 150px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,39 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+.header-md:after {
+  background-image: unset;
+}
+
+ion-header {
+  border-bottom: 1px solid #ccc;
+}
+
+.head {
+  padding: 10px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.head img {
+  width: 150px;
+}
+
+.contents {
+  padding: 25px;
+}
+
+.contents .inputs .cusinput {
+  margin-bottom: 10px;
+}
+
+.contents .inputs .cusinput input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  border-right: 1px solid var(--ion-color-secondary);
+}

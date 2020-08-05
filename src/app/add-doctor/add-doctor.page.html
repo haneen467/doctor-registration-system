@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>اضافة طبيب</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="head">
+    <img src="../../assets/doctor.svg" />
+  </div>
+
+  <div class="contents">
+    <div class="inputs">
+      <div class="cusinput">
+        <input type="text" placeholder="اسم المستخدم" #username />
+      </div>
+
+      <div class="cusinput">
+        <input type="text" placeholder="الاختصاص" #spel />
+      </div>
+
+      <div class="cusinput">
+        <input type="text" placeholder="اسم مكان العمل" #workname />
+      </div>
+
+      <div class="cusinput">
+        <textarea type="text" placeholder="السيرة الذاتية" #about></textarea>
+      </div>
+
+      <ion-button expand="full" class="ion-margin-bottom" color="danger" (click)="takePhoto()">
+        <span *ngIf="!loadingimg">ارفاق صورة</span>
+        <ion-spinner *ngIf="loadingimg" name="crescent" color="white" style="color: #FFF;"></ion-spinner>
+      </ion-button>
+
+      <ion-button expand="full" (click)="adddoc(username.value,spel.value,workname.value,about.value)">
+        <span *ngIf="!loading">اضافة طبيب</span>
+        <ion-spinner *ngIf="loading" name="crescent" color="white"></ion-spinner>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
